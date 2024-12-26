@@ -4,9 +4,7 @@ public class TrappingRainWater {
         arr[0] = height[0];
         for(int i = 1; i < n; i++) {
             arr[i] = Math.max(height[i], arr[i-1]);
-            System.out.print(arr[i] + " ");
         }
-        System.out.println();
         return arr;
     }
     public static int[] getRightMax(int[] height, int n) {
@@ -14,7 +12,6 @@ public class TrappingRainWater {
         arr[n - 1] = height[n - 1];
         for(int i = n - 2; i >= 0; i--) {
             arr[i] = Math.max(height[i], arr[i + 1]);
-            System.out.print(arr[i] + " ");
         }
         return arr;
     }
