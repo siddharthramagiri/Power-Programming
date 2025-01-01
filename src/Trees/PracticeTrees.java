@@ -2,6 +2,7 @@ package Trees;
 
 import com.sun.source.tree.Tree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -94,20 +95,72 @@ public class PracticeTrees {
 //        LevelOrderTraverse(root,height(root));
 //        System.out.println();
 //        root = BinarySearchTree(arr, root);
-        TreeNode root = new TreeNode(0);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right.left = new TreeNode(5);
-        root.right.left.right = new TreeNode(6);
-        root.right.right = new TreeNode(7);
-        LevelOrderTraverse(root,height(root));
 
-        TreeMap<Integer,Pair> hdist = new TreeMap<>();
-        getBottomView(root, hdist);
-        for(Integer i : hdist.keySet()) {
-            System.out.print(hdist.get(i).data + " ");
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.right.left = new TreeNode(4);
+        root.right.right = new TreeNode(10);
+        root.right.right.left = new TreeNode(8);
+        root.right.right.right = new TreeNode(15);
+        root.right.right.left.left = new TreeNode(7);
+
+//        LevelOrderTraverse(root,height(root));
+
+//        TreeMap<Integer,Pair> hdist = new TreeMap<>();
+//        getBottomView(root, hdist);
+//        for(Integer i : hdist.keySet()) {
+//            System.out.print(hdist.get(i).data + " ");
+//        }
+
+//        TreeNode ans = lowestCommonAncestor(root, new TreeNode(6), new TreeNode(7));
+//        LevelOrderTraverse(ans,height(ans));
+
+        TreeNode ans = deleteNode(root, 5);
+        LevelOrderTraverse(ans,height(ans));
+    }
+    public static TreeNode deleteNode(TreeNode root, int key) {
+        if(root == null) return null;
+        if(root.data < key) root.right =  deleteNode(root.right, key);
+        else if(root.data > key) root.left =  deleteNode(root.left, key);
+        else { // if root is found
+            if(root.left == null && root.right == null) {
+                return null;
+            } else if (root.right == null) return root.left;
+            else if (root.left == null) return root.right;
+            else {
+                TreeNode Isuccessor = FindMin(root.right);
+                root.data = Isuccessor.data;
+                root.right = deleteNode(root.right, Isuccessor.data);
+            }
         }
+        return root;
+    }
+    public static TreeNode FindMin(TreeNode root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+
+    public static ArrayList<Integer> getPath(TreeNode root, int n) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        path(root, arr, n);
+        return arr;
+    }
+    public static boolean path(TreeNode root,ArrayList<Integer> arr, int n) {
+        if(root == null) return false;
+        arr.add(root.data);
+        if(root.data == n) return true;
+        if(path(root.left, arr, n) || path(root.right,arr, n)) return true;
+        arr.removeLast();
+        return false;
+    }
+
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null || root.data == p.data || root.data == q.data)  return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        return (left == null) ? right : (right == null) ? left : root;
     }
 }

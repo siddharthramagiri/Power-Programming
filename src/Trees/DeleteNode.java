@@ -10,28 +10,23 @@ public class DeleteNode {
         } else if (key > root.data) {
             root.right = deletenode(root.right, key);
         } else {
-//            Logic to delete
-//            No childs
             if(root.left == null && root.right == null) {
                 return null;
             }
-//            Only One Left Child
-            else if(root.left == null) {
-                return root.right;
-            }
-//            Only One Right Child
             else if(root.right == null) {
                 return root.left;
+            } else if (root.left == null) {
+                return root.right;
+            } else {
+                BiNode IS = findMin(root.right);
+                root.data = IS.data;
+                root.right = deletenode(root.right, IS.data);
             }
-            // When Node has More than 2 Childs
-            BiNode successor = findMin(root.right);
-            root.data = successor.data;
-            root.right = deletenode(root.right, successor.data);
         }
         return root;
     }
     public static BiNode findMin(BiNode root) {
-        if(root.left != null) {
+        while(root.left != null) {
             root = root.left;
         }
         return root;
@@ -47,6 +42,7 @@ public class DeleteNode {
         root.right.left = new BiNode(6);
         root.right.right = new BiNode(7);
 
+        BinaryTree.LevelOrderTraversal(root,BinaryTree.height(root));
         BiNode dlt = deletenode(root, 3);
         BinaryTree.LevelOrderTraversal(dlt,BinaryTree.height(dlt));
     }
