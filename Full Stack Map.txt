@@ -1,0 +1,40 @@
+1) HTML/CSS/JS
+
+2) Core Java/Java8
+
+3) JDBC -> SQL
+
+4) Spring 	-> 	1. Core
+			2. MVC
+			3. Boot
+
+5) Spring  -> Micro Service
+
+6) Spring Security
+
+
+7) Single Page Application Frameworks (Front End)  ->  React JS/ Angular JS
+
+8) Sever  ->  Node JS
+
+9) Cloud  ->  AWS/Azure
+
+10) Containers -> Docker/Kubernetes
+
+11) Open Automation  ->  Jenkins
+
+12) Unit Testing ->	1. Junit
+			2. Mock Test
+
+
+
+Q) What are the Access Specifiers and Modifiers are added to the interfaces ot abstract methods ?
+A:
+
+Q) Are the Constructors are Static ?
+A:
+
+Q) Can we assign private specifier to Constructor ? (static/ final/ protected/ default) ??
+A:
+
+Q) What is the use of Super and Constructor
