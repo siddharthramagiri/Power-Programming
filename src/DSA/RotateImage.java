@@ -1,6 +1,4 @@
-package DSASheet;
-
-import java.util.Arrays;
+package DSA;
 
 public class RotateImage {
     public static void rotate(int[][] box) {

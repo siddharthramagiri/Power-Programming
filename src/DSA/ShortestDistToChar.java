@@ -1,4 +1,4 @@
-package DSASheet;
+package DSA;
 
 public class ShortestDistToChar {
     public static int[] shortestToChar(String s, char c) {

@@ -1,4 +1,4 @@
-package DSASheet;
+package DSA;
 
 public class ShiftingLetterII {
     public static String shiftingLetters(String s, int[][] shifts) {

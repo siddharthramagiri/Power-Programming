@@ -1,4 +1,4 @@
-package DSASheet;
+package DSA;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

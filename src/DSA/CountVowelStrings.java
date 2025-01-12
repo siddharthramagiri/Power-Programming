@@ -1,4 +1,4 @@
-package DSASheet;
+package DSA;
 
 public class CountVowelStrings {
     public static boolean isVowel(char ch) {

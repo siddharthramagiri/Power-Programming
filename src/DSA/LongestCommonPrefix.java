@@ -1,4 +1,4 @@
-package DSASheet;
+package DSA;
 
 import java.util.Arrays;
 
