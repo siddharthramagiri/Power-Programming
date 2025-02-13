@@ -11,6 +11,7 @@ public class MinimumOperationsExceedThresholdValue {
         }
         int count = 0;
         while(!pq.isEmpty()) {
+
             if(pq.size() > 1) {
                 long min = pq.poll();
                 long max = pq.poll();
