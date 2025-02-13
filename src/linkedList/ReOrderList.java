@@ -6,6 +6,7 @@ public class ReOrderList {
 
     public static void reorderList(Node head) {
         Stack<Node> stack = new Stack<>();
+
         Node curr = head;
         while(curr != null) {
             stack.push(curr);

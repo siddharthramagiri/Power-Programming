@@ -28,6 +28,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Q) What are the Access Specifiers and Modifiers are added to the interfaces ot abstract methods ?
 A:
 
