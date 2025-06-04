@@ -1,4 +1,4 @@
-package CodeForce;
+package Compete;
 import java.util.*;
 
 public class BiggerIsBetter {
